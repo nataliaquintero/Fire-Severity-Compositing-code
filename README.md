@@ -6,11 +6,11 @@ This repository contains Google Earth Engine (GEE) code for generating Landsat-b
 
 The repository includes the necessary scripts to generate fire severity maps using various compositing techniques:
 
-- **Initial_Max-Min Composite**
-- **Initial_Mean-Min Composite**
-- **Extended_Medoid Composite**
-- **Spring_Mean Composite**
-- **Summer_Max-Min Composite**
+- **Initial_Max-Min Composite** : The pre-fire was set to one year before the fire and the post-fire was set as the same year as the fire, both  during summer season. The compositing criterion is the max-min
+- **Initial_Mean-Min Composite**: The pre-fire was set to one year before the fire and the post-fire was set as the same year as the fire, both  during summer season. The compositing criterion is the mean-min
+- **Extended_Medoid Composite**: The pre-fire was set to one year before the fire and the post-fire was set one year after the fire, both  during summer season. The compositing criterion is the medoid
+- **Spring_Mean Composite**: The pre-fire was set to the spring season before the fire and the post-fire was set as the same year as the fire during summer season. The compositing criterion is the mean
+- **Summer_Max-Min Composite**: The pre-fire and the post-fire were set as the same year as the fire during summer season. The compositing criterion is the max-min
 
 These scripts allow the export of pixel centroids and TIFF imagery containing the following information:
 
