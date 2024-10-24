@@ -43,6 +43,8 @@
 
 // Convert the "year" property of each feature to an integer format
 // This ensures that the year is stored as an integer, which is useful for filtering and comparisons.
+var fires_summer = ee.FeatureCollection('users/estro/Spain_fires_summer_100'); 
+
 fires_summer = fires_summer.map(function(feature) {
   var yearInt = ee.Number(feature.get('year')).toInt();
   return feature.set('year', yearInt);
