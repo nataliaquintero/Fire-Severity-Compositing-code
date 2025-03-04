@@ -2,7 +2,7 @@
 //       Fire Severity Compositing Code Repository          //
 //                                                          //
 //  This code calculates Landsat-based fire severity        //
-//  initial composite.The pre-fire was set to one year      //
+//  initial composite. The pre-fire was set to one year      //
 //  before the fire and the post-fire was set               //
 //  the same year as the fire.                              //
 //  The compositing criterion is the max-min                //
@@ -18,10 +18,9 @@
 //  indicating the year of the fire. Dissolve your fire     //
 //  perimeters based on the 'Year' column.                  //
 //                                                          //
-//  The time lapse to create the composite is set during    //
+//  The time-lapse to create the composite is set during    //
 //  summer. Change it if your fire perimeters are from      //
 //  another season of the year.                             //
-//  GEE link: https://code.earthengine.google.com/27419eec2ce4f705fce634234c7f6b68
 //                                                          //
 //                                                          //
 //  License: MIT License                                    //
@@ -33,11 +32,11 @@
 //               University of East Anglia.                 //
 //                                                          //
 //  For more information, see the associated research paper://
-//  "Optimising Regional Fire Severity Mapping using        //
-//  Pixel-Based Image Compositing."                         //
+//  "Optimising fire severity mapping using                 //
+//  pixel-based image compositing."                         //
 // Database containing data generated using this code is    //
 // accessible at:                                           //
-//     Mendeley Data, V1, doi: 10.17632/dxp7p66gv3.1        //
+//     Mendeley Data, V4, doi: 10.17632/dxp7p66gv3.4.       //
 //                                                          //
 //////////////////////////////////////////////////////////////
 
@@ -69,8 +68,8 @@ var get_severity = function(fire) {
 
   var preNBR = ee.Image(preFireNBR1);
 
-  // Get the post-fire NBR by filtering the Landsat collection to the year of the fire and the year after,
-  // and selecting images during the summer period (DOY 153-274), then using a quality mosaic based on 'nbr_sort'.
+  // Get the post-fire NBR by filtering the Landsat collection to the year of the fire,
+  // and selecting images during the summer period (DOY 153-274), then using a quality mosaic based on 'nbr_sort' (NBR*-1).
   var postFireNBR1 = lsCol.filterBounds(study_site)
                           .filterDate(Fireyear, Fireyear.advance(1, 'year'))
                           .filter(ee.Filter.dayOfYear(153, 274))
@@ -133,7 +132,7 @@ for (var year = year_start; year <= year_end; year++) {
   // Export the first severity image of the current year to Google Drive
   Export.image.toDrive({
     image: severity.first(),
-    description: 'Initial_max_min_' + year,
+    description: 'summer_summer_max_min_' + year,
     folder: 'Your_folder',
     maxPixels: 1e13,
     scale: 30
@@ -143,7 +142,7 @@ for (var year = year_start; year <= year_end; year++) {
   /*
   Export.table.toDrive({
     collection: centroids.flatten(),
-    description: 'Initial_max_min_' + year,
+    description: 'summer_summer_max_min_' + year,
     folder: 'Your_folder',
     fileFormat: 'GEO_JSON'
   });
