@@ -1,6 +1,6 @@
 # Fire-Severity-Compositing-code
 
-This repository contains Google Earth Engine (GEE) code for generating Landsat-based fire severity composites. The methods and data processing techniques are detailed in the paper titled *"Optimising Regional Fire Severity Mapping using Pixel-Based Image Compositing."* It includes scripts for various compositing methods and exports related GeoJSON and TIFF data.
+This repository contains Google Earth Engine (GEE) code for generating Landsat-based fire severity composites. The methods and data processing techniques are detailed in the paper titled *"Optimising fire severity mapping using pixel-based image compositing."* It includes scripts for various compositing methods and exports related GeoJSON and TIFF data.
 
 ## Overview
 
