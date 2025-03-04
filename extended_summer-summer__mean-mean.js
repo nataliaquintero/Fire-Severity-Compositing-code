@@ -131,7 +131,7 @@ for (var year = year_start; year <= year_end; year++) {
  // Export the first severity image of the current year to Google Drive
   Export.image.toDrive({
     image: severity.first(), // Exporting the first image in the collection
-    description: 'Extended_summer-summer_mean-mean' + year,
+    description: 'Extended_summer-summer_mean-mean_' + year,
     folder: 'YourFolder',
     maxPixels: 1e13,
     scale: 30
@@ -141,7 +141,7 @@ for (var year = year_start; year <= year_end; year++) {
   /*
   Export.table.toDrive({
     collection: centroids.flatten(),
-    description: 'Extended_summer-summer_mean-mean' + year,
+    description: 'Extended_summer-summer_mean-mean_' + year,
     folder: 'YourFolder',
     fileFormat: 'GEO_JSON'
   });
