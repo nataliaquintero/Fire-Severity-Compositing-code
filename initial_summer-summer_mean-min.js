@@ -35,7 +35,7 @@
 //  pixel-based image compositing."                         //
 // Database containing data generated using this code is    //
 // accessible at:                                           //
-//     Mendeley Data, V1, doi: 10.17632/dxp7p66gv3.1        //
+//     Mendeley Data, V4, doi: 10.17632/dxp7p66gv3.4.       //
 //                                                          //
 //////////////////////////////////////////////////////////////
 
@@ -131,7 +131,7 @@ for (var year = year_start; year <= year_end; year++) {
   // Export the first severity image of the current year to Google Drive
   Export.image.toDrive({
     image: severity.first(),
-    description: 'initial_summer-summer_mean-min_' + year,
+    description: 'summer-summer_mean-min_' + year,
     folder: 'Your_folder',
     maxPixels: 1e13,
     scale: 30
@@ -141,7 +141,7 @@ for (var year = year_start; year <= year_end; year++) {
   /*
   Export.table.toDrive({
     collection: centroids.flatten(),
-    description: 'Initial_mean_min_' + year,
+    description: 'summer-summer_mean-min_' + year,
     folder: 'Your_folder',
     fileFormat: 'GEO_JSON'
   });
